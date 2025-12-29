@@ -1,0 +1,16 @@
+body{
+    background-color: red;
+}
+h1{
+    background-color: blueviolet;
+}
+.sel{
+    background-color: blue;
+}
+#sec{
+    background-color: aliceblue;
+}
+*{
+    margin: 0;
+    padding: 0;
+}

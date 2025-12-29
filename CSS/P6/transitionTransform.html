@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+    <style>
+        .con{
+            background-color: red;
+            height: 1200px;
+        }
+        .box{
+            border: 2px solid black;
+            /* transform: translate(34px,56px) rotate(25deg);
+            transform-origin: 0; */
+            /* transform: scale(4,5); */
+            /* transform: scaleX(4);
+            transform: scaleY(5); */
+            /* transform: skew(4deg,5deg); */
+        }
+        img{
+            width: 50px;
+            height: 50px;
+            transition-property: width;
+            transition-duration: 1s;
+            transition-timing-function: ease-in;
+            /* transition-delay: 3s; */
+        }
+        img:hover{
+            width: 566px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="con">
+        <div class="box">
+            <img id="image" src="/P1/ind.jpg" alt="">
+            <button id="btn">toggle</button>
+        </div>
+    </div>
+</body>
+<script>
+    btn.addEventListener("click",()=>{
+        image.style.width="566px";
+    })
+</script>
+</html>

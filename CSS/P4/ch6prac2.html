@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ch 6 Prac using flex</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            padding: 34px;
+        }
+        li{
+            list-style: none;
+            display: inline;
+            padding: 0 43px;
+        }
+        header{
+            background-color: black;
+            color: white;
+        }
+        .left{
+            height: 80vh;
+            width: 40vw;
+            background-color: aqua;
+        }
+        .right{
+            height: 80vh;
+            width: 40vw;
+            background-color: blueviolet;
+        }
+        .con{
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+    <div class="con">
+        <div class="left">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia minima numquam autem tempore, a quo voluptate, doloribus sapiente distinctio officia nobis dolor culpa. Consectetur ipsum omnis eos dicta exercitationem soluta fuga voluptate asperiores blanditiis.
+        </div>
+        <div class="right">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolorum amet fugiat, odit cumque aut exercitationem tenetur nisi omnis aperiam dignissimos quidem earum debitis. Debitis quod exercitationem fuga numquam cupiditate eum incidunt accusamus impedit voluptatum quisquam, reprehenderit assumenda saepe ipsa recusandae perspiciatis ducimus. Ab possimus vel hic expedita veniam nemo perferendis doloremque itaque facilis.
+        </div>
+    </div>
+</body>
+</html>

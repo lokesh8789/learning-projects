@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        .con{
+            height: 300vh;
+            width: 100vw;
+            background-color: aqua;
+        }
+        .box{
+            height: 300px;
+            width: 300px;
+            background-color: red;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation-name: widthFrame;
+            animation-timing-function: ease-in-out;
+            animation-duration: 2s;
+            animation-delay: 1s;
+            animation-iteration-count: 3;
+            animation-direction: alternate-reverse;
+            /* animation: widthFrame 2s ease-in-out 1s 3 alternate; */
+        }
+        @keyframes widthFrame {
+            from{
+                width: 300px;
+                height: 300px;
+            }
+            to{
+                width: 600px;
+                height: 100vh;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="box">this ubisudbc</div>
+    </div>
+</body>
+</html>

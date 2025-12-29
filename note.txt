@@ -1,0 +1,54 @@
+@Override
+public Mono<User> deleteUser(int id) {
+    return userRepo.findById(id)
+            .flatMap(new DeleteUserFunction(userRepo, id));
+}
+
+class DeleteUserFunction implements Function<User, Publisher<User>> {
+    private final UserRepository userRepo;
+    private final int id;
+
+    public DeleteUserFunction(UserRepository userRepo, int id) {
+        this.userRepo = userRepo;
+        this.id = id;
+    }
+
+    @Override
+    public Publisher<User> apply(User user) {
+        return userRepo.deleteById(id)
+                .thenReturn(user);
+    }
+}
+
+----------------------------------------------------------------------
+
+@Override
+public Mono<User> deleteUser(int id) {
+    return userRepo.findById(id)
+            .flatMap(new Function<User, Mono<User>>() {
+                @Override
+                public Mono<User> apply(User user) {
+                    return userRepo.deleteById(id)
+                            .thenReturn(user);
+                }
+            });
+}
+-----------------------------------------------------------------------
+
+@Override
+public Mono<User> deleteUser(int id) {
+    return userRepo.findById(id)
+            .flatMap(this::deleteUserAndReturn);
+}
+
+private Mono<User> deleteUserAndReturn(User user) {
+    return userRepo.deleteById(user.getId())
+            .thenReturn(user);
+}
+-----------------------------------------------------------------------
+
+@Override
+public Mono<User> deleteUser(int id) {
+    return userRepo.findById(id)
+        .flatMap(user -> userRepo.deleteById(id).thenReturn(user));
+}

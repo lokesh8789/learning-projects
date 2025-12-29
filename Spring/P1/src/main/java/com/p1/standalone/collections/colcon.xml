@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util.xsd">
+	<util:list list-class="java.util.LinkedList" id="list1">
+		<value>Aman</value>
+		<value>Lokesh</value>
+		<value>Ankit</value>
+	</util:list>
+	<util:map map-class="java.util.HashMap" id="map1">
+		<entry key="java" value="200"/>
+		<entry key="python" value="50"/>
+	</util:map>
+	<util:properties id="prop1">
+		<prop key="driver"> wow</prop>
+		<prop key="name"> gzb</prop>
+	</util:properties>
+	<bean class="com.p1.standalone.collections.Person" name="person1">
+		<property name="friends" ref="list1"/>
+		<property name="feestructure" ref="map1"/>
+		<property name="properties" ref="prop1"></property>
+	</bean>
+</beans>

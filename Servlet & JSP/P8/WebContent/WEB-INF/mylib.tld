@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>  <!-- not needed  -->
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>  <!-- not needed  -->
+    <short-name>mylib</short-name>
+    <uri>/WEB-INF/mylib</uri>
+    <tag>
+        <name>mytag</name>
+        <tag-class>com.p8.MyTagHandler</tag-class>
+    </tag>
+    <tag>
+        <name>printTable</name>
+        <tag-class>com.p8.PrintTableTag</tag-class>
+        <attribute>
+        	<name>number</name>
+        	<required>true</required>
+        </attribute>
+        <attribute>
+        	<name>color</name>
+        	<required>true</required>
+        </attribute>
+    </tag>
+</taglib>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>margin Collapse</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .b1{
+            background-color: red;
+            height: 20px;
+            margin: 30px;
+        }
+        .b2{
+            background-color: aqua;
+            margin: 20px;
+            height: 20px;
+            box-sizing: border-box;
+        }
+        .b3{
+            background-color:red;
+            margin: 30px;
+            height: 250px;
+            width: 200px;
+            border: 2px solid black;
+        }
+        .b4{
+            background-color:aqua;
+            /* margin: 20px; */
+            height: 20px;
+            padding: 6px;
+            width: 100%;
+            border: 3px solid black;
+            box-sizing: border-box;
+            /* box-sizing:content-box; */
+        }
+    </style>
+</head>
+<body>
+    <div class="b1">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, dolor dolores. Repudiandae architecto tempore, dignissimos ducimus nostrum suscipit. Commodi explicabo dolorum est magni temporibus voluptatibus ad vero, soluta dicta aliquid delectus necessitatibus a ipsam.
+    </div>
+    <div class="b2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum dicta debitis reiciendis culpa repellat cum laboriosam assumenda voluptate, aut atque dolores earum fugit, optio quis aperiam soluta cumque at ipsa accusantium commodi quas officiis.
+    </div>
+    <div class="b3">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, consequuntur ipsam incidunt fugit, soluta dicta saepe eligendi voluptatibus expedita facere repudiandae nam nemo aperiam, explicabo officia qui eveniet pariatur commodi deserunt magnam maiores consequatur?
+        <div class="b4"></div>
+    </div>
+</body>
+</html>
