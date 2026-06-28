@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: jobrunr-demo
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jobrunr
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+jobrunr:
+  database:
+    type: sql
+  background-job-server:
+    enabled: true
+    worker-count: 4
+    thread-type: VirtualThreads #PlatformThreads
+  dashboard:
+    enabled: true
+    port: 8000
+    username: admin
+    password: admin
