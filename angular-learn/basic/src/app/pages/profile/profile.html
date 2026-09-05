@@ -1,0 +1,16 @@
+<p>{{ title() }}</p>
+<p>Id: {{ id() }}</p>
+
+<a routerLink="/">Home</a>
+
+<h3>Stream Way</h3>
+
+@for (item of postStream(); track $index) {
+    <p>{{item.id}} -> {{item.title}}</p>
+}
+
+<h3>Normal Way</h3>
+
+@for (item of posts(); track item.id) {
+    <p>{{item | json}}</p>
+}

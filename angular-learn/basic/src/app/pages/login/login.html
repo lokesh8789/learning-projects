@@ -1,0 +1,32 @@
+<!-- <form (submit)="onSave($event)"> -->
+<form [formRoot]="loginForm">
+  <input type="email" [formField]="loginForm.email" />
+  <br/>
+  <p>{{ loginForm.email().value() }}</p>
+  <br/>
+  <input type="text" [formField]="loginForm.password" />
+  <br/>
+  <p>{{ formModel().password }}</p>
+  <br/>
+  <select [formField]="loginForm.country">
+    @for (country of countryList; track country) {
+      <option [value]="country">{{country}}</option>
+    }
+  </select>
+  <br/>
+  <br/>
+  <select [formField]="loginForm.state">
+    @for (state of stateList[loginForm.country().value()]; track $index) {
+      <option [value]="state">{{state}}</option>
+    }
+  </select>
+  <br/>
+  <br/>
+  <button type="submit" [disabled]="loginForm().submitting()">
+    @if (loginForm().submitting()) {
+      Sending....
+    } @else {
+      Submit
+    }
+  </button>
+</form>
