@@ -1,0 +1,5 @@
+@for (item of posts(); track item.id) {
+    <p>{{item | json}}</p>
+}
+
+<button routerLink="/profile">Go to Profile</button>
