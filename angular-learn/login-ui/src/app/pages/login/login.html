@@ -1,0 +1,31 @@
+<app-auth-layout type="login" [isLoading]="isLoading()" [errorMessage]="errorMessage()">
+
+  <!-- Login Form -->
+  <form (submit)="onSubmit($event)" class="flex flex-col gap-4" novalidate>
+    <app-input
+      label="Email address"
+      type="email"
+      placeholder="name@example.com"
+      autocomplete="email"
+      [field]="loginForm.userName"
+    />
+
+    <app-input
+      label="Password"
+      type="password"
+      placeholder="••••••••"
+      autocomplete="current-password"
+      [field]="loginForm.password"
+    />
+
+    <app-button
+      type="submit"
+      class="pt-1"
+      [loading]="isLoading()"
+      loadingText="Signing in..."
+    >
+      Sign in
+    </app-button>
+  </form>
+
+</app-auth-layout>

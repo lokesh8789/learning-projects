@@ -1,0 +1,52 @@
+<div class="space-y-1">
+  @if (label()) {
+    <label [for]="inputId()" class="block text-xs font-medium text-slate-700">
+      {{ label() }}
+    </label>
+  }
+
+  <div class="relative">
+    @if (field(); as fieldNode) {
+      <input
+        [id]="inputId()"
+        [type]="effectiveType()"
+        [placeholder]="placeholder()"
+        [autocomplete]="autocomplete()"
+        [attr.aria-invalid]="isInvalid() ? 'true' : null"
+        [attr.aria-describedby]="errorMessage() ? inputId() + '-error' : null"
+        [formField]="fieldNode"
+        [class]="inputClasses()"
+      />
+    } @else {
+      <input
+        [id]="inputId()"
+        [name]="name() || inputId()"
+        [type]="effectiveType()"
+        [placeholder]="placeholder()"
+        [autocomplete]="autocomplete()"
+        [disabled]="disabled()"
+        [attr.aria-invalid]="isInvalid() ? 'true' : null"
+        [attr.aria-describedby]="errorMessage() ? inputId() + '-error' : null"
+        [class]="inputClasses()"
+      />
+    }
+
+    @if (type() === 'password') {
+      <button
+        type="button"
+        tabindex="-1"
+        [attr.aria-label]="showPassword() ? 'Hide password' : 'Show password'"
+        (click)="togglePasswordVisibility()"
+        class="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs font-medium text-slate-400 hover:text-slate-600 cursor-pointer select-none px-1 py-0.5"
+      >
+        {{ showPassword() ? 'Hide' : 'Show' }}
+      </button>
+    }
+  </div>
+
+  @if (isInvalid() && errorMessage()) {
+    <p [id]="inputId() + '-error'" class="text-xs text-red-600 font-medium">{{ errorMessage() }}</p>
+  } @else if (hint()) {
+    <p class="text-xs text-slate-400">{{ hint() }}</p>
+  }
+</div>

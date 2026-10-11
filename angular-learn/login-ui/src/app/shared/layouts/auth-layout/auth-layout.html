@@ -1,0 +1,61 @@
+<div class="min-h-screen flex items-center justify-center bg-slate-50 p-4">
+  <div class="w-full max-w-sm bg-white p-8 rounded-xl border border-slate-200 shadow-sm flex flex-col gap-5">
+    
+    <!-- Dynamic Header -->
+    <header class="text-center space-y-1">
+      <h1 class="text-2xl font-bold tracking-tight text-slate-900">
+        @if (title()) {
+          {{ title() }}
+        } @else {
+          @switch (type()) {
+            @case ('login') { Sign in }
+            @case ('register') { Create account }
+            @case ('forgot-password') { Reset password }
+          }
+        }
+      </h1>
+      <p class="text-xs text-slate-500">
+        @if (subtitle()) {
+          {{ subtitle() }}
+        } @else {
+          @switch (type()) {
+            @case ('login') { Welcome back! Please enter your details. }
+            @case ('register') { Sign up to get started today }
+            @case ('forgot-password') { Enter your email to receive reset instructions. }
+          }
+        }
+      </p>
+    </header>
+
+    <!-- Error Alert Banner -->
+    <app-alert [message]="errorMessage()" />
+
+    <!-- Social OAuth Buttons -->
+    @if (shouldShowOAuth()) {
+      <app-oauth-buttons [disabled]="isLoading()" />
+    }
+
+    <!-- Main Content Slot -->
+    <ng-content />
+
+    <!-- Built-in Dynamic Footer -->
+    <footer class="text-center text-xs text-slate-500 pt-1 border-t border-slate-100">
+      @switch (type()) {
+        @case ('login') {
+          <span>Don't have an account? </span>
+          <a routerLink="/register" class="font-medium text-blue-600 hover:text-blue-700 hover:underline">Create account</a>
+        }
+        @case ('register') {
+          <span>Already have an account? </span>
+          <a routerLink="/login" class="font-medium text-blue-600 hover:text-blue-700 hover:underline">Log in</a>
+        }
+        @case ('forgot-password') {
+          <span>Remember your password? </span>
+          <a routerLink="/login" class="font-medium text-blue-600 hover:text-blue-700 hover:underline">Back to sign in</a>
+        }
+      }
+    </footer>
+
+  </div>
+</div>
+

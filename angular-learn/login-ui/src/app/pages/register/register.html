@@ -1,0 +1,47 @@
+<app-auth-layout type="register" [isLoading]="isLoading()" [errorMessage]="errorMessage()">
+
+  <!-- Registration Form -->
+  <form (submit)="onSubmit($event)" class="flex flex-col gap-4" novalidate>
+    <app-input
+      label="Full Name"
+      type="text"
+      placeholder="Jane Doe"
+      autocomplete="name"
+      [field]="registerForm.name"
+    />
+
+    <app-input
+      label="Email address"
+      type="email"
+      placeholder="name@example.com"
+      autocomplete="email"
+      [field]="registerForm.email"
+    />
+
+    <app-input
+      label="Password"
+      type="password"
+      placeholder="At least 8 characters"
+      autocomplete="new-password"
+      [field]="registerForm.password"
+    />
+
+    <app-input
+      label="Confirm Password"
+      type="password"
+      placeholder="Repeat password"
+      autocomplete="new-password"
+      [field]="registerForm.confirmPassword"
+    />
+
+    <app-button
+      type="submit"
+      class="pt-1"
+      [loading]="isLoading()"
+      loadingText="Creating account..."
+    >
+      Create account
+    </app-button>
+  </form>
+
+</app-auth-layout>

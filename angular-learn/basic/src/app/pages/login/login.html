@@ -30,3 +30,14 @@
     }
   </button>
 </form>
+
+<br/>
+<button type="button" (click)="loginWithGithub()">
+  Continue with GitHub
+</button>
+
+<br>
+
+@if (apiData(); as data) {
+  <pre>{{ $any(data).attributes | json }}</pre>
+}
